@@ -44,7 +44,7 @@ function Get-ServiceDeskResolution {
                 Attachments = $Response.resolution.resolution_attachments
                 AuthorName = $Response.resolution.submitted_by.name
                 AuthorEmail = $Response.resolution.submitted_by.email_id.ToLower()
-                SubmissionTime = $Response.resolution.submitted_on.display_value | Get-Date
+                SubmissionTime = if ($Response.resolution.submitted_on) { $Response.resolution.submitted_on.display_value | Get-Date } else { $null }
             }
         }
     }

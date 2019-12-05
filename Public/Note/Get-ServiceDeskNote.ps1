@@ -44,7 +44,7 @@ function Get-ServiceDeskNote {
                     Id = $Note.id
                     Author = $Note.created_by.name
                     Public = [System.Convert]::ToBoolean($Note.show_to_requester)
-                    CreatedTime = $Note.created_time.display_value | Get-Date
+                    CreatedTime = if ($Note.created_time) { $Note.created_time.display_value | Get-Date } else { $null }
                     RequestId = $Note.request.id
                 }
             }

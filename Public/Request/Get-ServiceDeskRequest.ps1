@@ -60,13 +60,13 @@ function Get-ServiceDeskRequest {
                 SLA = $Response.request.sla.name
                 ClosureAcknowledged = [System.Convert]::ToBoolean($Response.request.closure_info.requester_ack_resolution)
                 ClosureType = $Response.request.closure_info.requester_ack_comments
-                CreatedTime = $Response.request.created_time.display_value | Get-Date
-                AssignedTime = $Response.request.assigned_time.display_value | Get-Date
-                FirstResponseDueTime= $Response.request.first_response_due_by_time.display_value | Get-Date
-                DueTime= $Response.request.due_by_time.display_value | Get-Date
-                ResolvedTime= $Response.request.resolved_time.display_value | Get-Date
-                CompletedTime = $Response.request.completed_time.display_value | Get-Date
-                LastUpdatedTime = $Response.request.last_updated_time.display_value | Get-Date
+                CreatedTime = if ($Response.request.created_time) { $Response.request.created_time.display_value | Get-Date } else { $null }
+                AssignedTime = if ($Response.request.assigned_time) { $Response.request.assigned_time.display_value | Get-Date } else { $null }
+                FirstResponseDueTime = if ($Response.request.first_response_due_by_time) { $Response.request.first_response_due_by_time.display_value | Get-Date } else { $null }
+                DueTime = if ($Response.request.due_by_time) { $Response.request.due_by_time.display_value | Get-Date } else { $null }
+                ResolvedTime = if ($Response.request.resolved_time) { $Response.request.resolved_time.display_value | Get-Date } else { $null }
+                CompletedTime = if ($Response.request.completed_time) { $Response.request.completed_time.display_value | Get-Date } else { $null }
+                LastUpdatedTime = if ($Response.request.last_updated_time) { $Response.request.last_updated_time.display_value | Get-Date } else { $null }
                 ElapsedTime = $Response.request.time_elapsed.display_value
             }
         }
