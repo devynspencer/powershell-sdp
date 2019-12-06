@@ -31,7 +31,7 @@ function Add-ServiceDeskResolution {
         [Parameter(Mandatory)]
         $Uri,
 
-        # ServiceDesk Plus API KEY
+        # ServiceDesk Plus API key
         [Parameter(Mandatory)]
         $ApiKey
     )
