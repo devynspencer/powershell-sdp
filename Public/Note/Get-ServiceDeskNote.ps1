@@ -41,7 +41,8 @@ function Get-ServiceDeskNote {
 
             foreach ($Note in $Response.notes) {
                 [PSCustomObject] @{
-                    Id = $Note.id
+                    Id = $Id
+                    NoteId = $Note.id
                     Author = $Note.created_by.name
                     Public = [System.Convert]::ToBoolean($Note.show_to_requester)
                     CreatedTime = if ($Note.created_time) { $Note.created_time.display_value | Get-Date } else { $null }

@@ -57,6 +57,7 @@ function Close-ServiceDeskRequest {
             $Response = Invoke-RestMethod @Parameters
 
             [PSCustomObject] @{
+                Id = $Id
                 Message = $Response.response_status.status
             }
         }

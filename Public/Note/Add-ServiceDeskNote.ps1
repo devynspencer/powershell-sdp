@@ -67,6 +67,7 @@ function Add-ServiceDeskNote {
             $Response = Invoke-RestMethod @Parameters
 
             [PSCustomObject] @{
+                Id = $Id
                 Message = $Response.response_status.status
             }
         }

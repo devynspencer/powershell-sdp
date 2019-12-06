@@ -40,6 +40,7 @@ function Get-ServiceDeskResolution {
             $Response = Invoke-RestMethod @Parameters
 
             [PSCustomObject] @{
+                Id = $Id
                 Message = $Response.resolution.content
                 Attachments = $Response.resolution.resolution_attachments
                 AuthorName = $Response.resolution.submitted_by.name

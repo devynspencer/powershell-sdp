@@ -58,6 +58,7 @@ function Add-ServiceDeskResolution {
             $Response = Invoke-RestMethod @Parameters
 
             [PSCustomObject] @{
+                Id = $Id
                 Message = $Response.response_status.messages.message
             }
         }
