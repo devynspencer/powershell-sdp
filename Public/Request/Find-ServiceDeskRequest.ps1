@@ -177,7 +177,7 @@ function Find-ServiceDeskRequest {
                 Subject = $Request.subject
                 Requestor = $Request.requester.name
                 Technician = $Request.technician.name
-                Created = if ($Request.created_time) { $Request.created_time.display_value | Get-Date } else { $null }
+                CreatedTime = if ($Request.created_time) { $Request.created_time.display_value | Get-Date } else { $null }
                 Group = $Request.group.name
                 Description = $Request.short_description
                 Priority = $Request.priority.name
